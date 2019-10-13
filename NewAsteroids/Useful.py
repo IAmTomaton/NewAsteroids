@@ -1,4 +1,5 @@
 import math
+from random import random
 
 
 class Body:
@@ -9,6 +10,8 @@ class Body:
 
         self.angle = angle
         self.angel_velocity = angel_velocity
+
+        self.braking = braking
 
     @staticmethod
     def simple():
@@ -69,3 +72,6 @@ class Vector:
 
     def tup(self):
         return self.x, self.y
+
+def random_value(min=0, max=0):
+    return random() * (max - min) + min

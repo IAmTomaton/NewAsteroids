@@ -21,14 +21,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Asteroids.py">
+    <Compile Include="Units\Asteroids.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="module1.py">
+    <Compile Include="Menu.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NewAsteroids.py" />
-    <Compile Include="Player.py">
+    <Compile Include="Generator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\Bullet.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\Player.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Space.py">
@@ -42,6 +48,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Units\" />
     <Folder Include="Textures\" />
   </ItemGroup>
   <ItemGroup>

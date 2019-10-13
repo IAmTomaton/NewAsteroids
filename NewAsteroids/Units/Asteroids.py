@@ -6,13 +6,14 @@ class Asteroid:
             self.radius = 100
 
         self.body = body
+        self.live = True
 
     @staticmethod
     def large(body):
         return Asteroid(1, body)
 
-    def update(self, space):
+    def update(self, space, delta):
         pass
 
     def collision(self, other, space):
-        print(1)
+        pass
