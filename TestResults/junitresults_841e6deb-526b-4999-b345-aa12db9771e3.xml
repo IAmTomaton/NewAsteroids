@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="5" time="0.065" timestamp="2019-12-17T22:23:46.903489"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="33" name="test_draw_buttons" time="0.002"></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="40" name="test_draw_debug_units" time="0.004"><failure message="TypeError: &apos;&gt;&apos; not supported between instances of &apos;MagicMock&apos; and &apos;int&apos;">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_debug_units&gt;
+
+    def test_draw_debug_units(self):
+        button = MagicMock()
+    
+&gt;       self.graphics.draw_debug_units([button, button])
+
+Tests\test_graphics.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Graphics.Graphics object at 0x00000121D12B8E08&gt;
+units = [&lt;MagicMock id=&apos;1244751407688&apos;&gt;, &lt;MagicMock id=&apos;1244751407688&apos;&gt;]
+
+    def draw_debug_units(self, units):
+        for i in units:
+            a1 = (int(i.body.coordinates.x), int(i.body.coordinates.y))
+            a2 = (i.body.coordinates.x + i.body.velocity.x,
+                  i.body.coordinates.y + i.body.velocity.y)
+            pygame.draw.aaline(self.window, (0, 200, 64), a1, a2)
+    
+&gt;           if i.radius &gt; 0:
+E           TypeError: &apos;&gt;&apos; not supported between instances of &apos;MagicMock&apos; and &apos;int&apos;
+
+Graphics.py:41: TypeError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="21" name="test_draw_stats_player" time="0.003"></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="27" name="test_draw_unit" time="0.003"></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="15" name="test_init" time="0.002"></testcase></testsuite></testsuites>

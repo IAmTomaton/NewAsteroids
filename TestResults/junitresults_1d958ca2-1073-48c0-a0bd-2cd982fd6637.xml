@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.047" timestamp="2019-12-17T21:20:14.509951"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="7" name="test_init" time="0.001"><failure message="TypeError: &apos;module&apos; object is not callable">self = &lt;test_graphics.Test_test_graphics testMethod=test_init&gt;
+
+    def test_init(self):
+        lib = MagicMock()
+&gt;       graphics = Graphics(lib)
+E       TypeError: &apos;module&apos; object is not callable
+
+Tests\test_graphics.py:10: TypeError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.050" timestamp="2019-12-17T21:20:43.762250"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="7" name="test_init" time="0.002"><failure message="pygame.error: font not initialized">self = &lt;test_graphics.Test_test_graphics testMethod=test_init&gt;
+
+    def test_init(self):
+        lib = MagicMock()
+        graphics = Graphics(lib)
+    
+&gt;       graphics.init(MagicMock())
+
+Tests\test_graphics.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Graphics.Graphics object at 0x0000021CE1FB2B88&gt;
+window = &lt;MagicMock id=&apos;2323073674184&apos;&gt;
+
+    def init(self, window):
+        self.window = window
+        self.lib.init()
+&gt;       self.font = pygame.font.Font(None, self.font_size)
+E       pygame.error: font not initialized
+
+Graphics.py:66: error</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.031" timestamp="2019-12-18T10:36:51.628542"><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="75" name="test_exit" time="0.001"></testcase></testsuite></testsuites>

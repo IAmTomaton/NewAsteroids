@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>NewAsteroids</Name>
     <RootNamespace>NewAsteroids</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,39 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Body.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Button.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Graphics.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlayerBox.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_body.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_graphics.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_menu.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_player_box.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_texture_lib.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_vector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnitCard.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Units\Asteroids.py">
       <SubType>Code</SubType>
     </Compile>
@@ -31,7 +65,19 @@
     <Compile Include="Generator.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Units\BlackHole.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Units\Bullet.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\HolHorse.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\LastHamon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\Particle.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Units\Player.py">
@@ -40,23 +86,41 @@
     <Compile Include="Space.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TextureLid.py">
+    <Compile Include="TextureLib.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\StarPlatinum.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\Unit.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Units\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Useful.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Vector.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Tests\" />
     <Folder Include="Units\" />
     <Folder Include="Textures\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="records.txt" />
     <Content Include="Textures\Asteroid.png" />
     <Content Include="Textures\Basic.png" />
-    <Content Include="Textures\Boom.png" />
     <Content Include="Textures\Bullet.png" />
+    <Content Include="Textures\Enemy_bullet.png" />
+    <Content Include="Textures\Hol_horse.png" />
+    <Content Include="Textures\Last_hamon.png" />
+    <Content Include="Textures\Particle.png" />
     <Content Include="Textures\Player.png" />
+    <Content Include="Textures\Star_platinum.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

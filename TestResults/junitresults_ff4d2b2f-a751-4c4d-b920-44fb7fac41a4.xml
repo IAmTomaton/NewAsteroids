@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="11" time="0.062" timestamp="2019-12-18T10:37:40.465495"><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="82" name="test_continue_c" time="0.001"><failure message="AssertionError: &lt;MagicMock name=&apos;mock.pause&apos; id=&apos;2250798102600&apos;&gt; is not false">self = &lt;test_menu.Test_test_menu testMethod=test_continue_c&gt;
+
+    def test_continue_c(self):
+        space = MagicMock()
+    
+        self.menu.exit(space)
+    
+&gt;       self.assertFalse(space.pause)
+E       AssertionError: &lt;MagicMock name=&apos;mock.pause&apos; id=&apos;2250798102600&apos;&gt; is not false
+
+Tests\test_menu.py:88: AssertionError</failure></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="75" name="test_exit" time="0.000"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="12" name="test_init_scenes" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="44" name="test_level_1" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="52" name="test_level_2" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="60" name="test_level_3" time="0.002"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="30" name="test_levels" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="15" name="test_main_menu" time="0.002"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="23" name="test_main_menu_from_menu" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="37" name="test_play" time="0.001"></testcase><testcase classname="Tests.test_menu.Test_test_menu" file="Tests\test_menu.py" line="68" name="test_save_record" time="0.001"></testcase></testsuite></testsuites>

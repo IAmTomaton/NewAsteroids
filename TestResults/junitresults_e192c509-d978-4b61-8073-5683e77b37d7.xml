@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.034" timestamp="2019-12-17T22:22:31.803255"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="33" name="test_draw_buttons" time="0.002"></testcase></testsuite></testsuites>

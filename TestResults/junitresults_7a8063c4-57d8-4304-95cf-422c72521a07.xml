@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="2" time="0.022" timestamp="2019-12-18T10:42:16.406474"><testcase classname="Tests.test_body.Test_test_body" file="Tests\test_body.py" line="11" name="test_angle" time="0.000"></testcase><testcase classname="Tests.test_body.Test_test_body" file="Tests\test_body.py" line="6" name="test_simple" time="0.001"><failure message="NameError: name &apos;Vector&apos; is not defined">self = &lt;test_body.Test_test_body testMethod=test_simple&gt;
+
+    def test_simple(self):
+        body = Body.simple()
+    
+&gt;       self.assertEqual(Body(Vector(0, 0), Vector(0, 0), 0, 0, False), body)
+E       NameError: name &apos;Vector&apos; is not defined
+
+Tests\test_body.py:10: NameError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.024" timestamp="2019-12-18T10:48:16.334288"><testcase classname="Tests.test_body.Test_test_body" file="Tests\test_body.py" line="7" name="test_simple" time="0.000"><failure message="TypeError: unsupported operand type(s) for -: &apos;Body&apos; and &apos;Body&apos;">self = &lt;test_body.Test_test_body testMethod=test_simple&gt;
+
+    def test_simple(self):
+        body = Body.simple()
+    
+&gt;       self.assertAlmostEqual(Body(Vector(0, 0), Vector(0, 0), 0, 0, False), body)
+E       TypeError: unsupported operand type(s) for -: &apos;Body&apos; and &apos;Body&apos;
+
+Tests\test_body.py:11: TypeError</failure></testcase></testsuite></testsuites>

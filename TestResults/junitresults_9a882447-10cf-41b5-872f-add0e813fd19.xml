@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.049" timestamp="2019-12-17T22:28:35.220793"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="40" name="test_draw_debug_units" time="0.003"><failure message="AssertionError: False is not true">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_debug_units&gt;
+
+    def test_draw_debug_units(self):
+        button = MagicMock()
+        button.radius = 0
+    
+        self.graphics.draw_debug_units([button, button])
+    
+&gt;       self.assertTrue(self.pygame.aaline.called)
+E       AssertionError: False is not true
+
+Tests\test_graphics.py:47: AssertionError</failure><system-out>1
+1
+</system-out></testcase></testsuite></testsuites>

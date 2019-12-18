@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="4" time="0.060" timestamp="2019-12-17T22:07:25.935017"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="33" name="test_draw_buttons" time="0.002"><failure message="AttributeError: &apos;list&apos; object has no attribute &apos;body&apos;">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_buttons&gt;
+
+    def test_draw_buttons(self):
+    
+&gt;       self.graphics.draw_unit([MagicMock(), MagicMock()])
+
+Tests\test_graphics.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Graphics.Graphics object at 0x000002C0A2AB8B88&gt;
+unit = [&lt;MagicMock id=&apos;3026389986376&apos;&gt;, &lt;MagicMock id=&apos;3026389999432&apos;&gt;]
+
+    def draw_unit(self, unit):
+&gt;       x = unit.body.coordinates.x
+E       AttributeError: &apos;list&apos; object has no attribute &apos;body&apos;
+
+Graphics.py:16: AttributeError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="21" name="test_draw_stats_player" time="0.003"></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="27" name="test_draw_unit" time="0.004"></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="15" name="test_init" time="0.001"></testcase></testsuite></testsuites>

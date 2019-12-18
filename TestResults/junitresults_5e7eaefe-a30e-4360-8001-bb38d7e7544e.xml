@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="2" time="0.051" timestamp="2019-12-17T21:55:27.979022"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="18" name="test_draw_stats_player" time="0.003"><failure message="AssertionError: 4 != 0">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_stats_player&gt;
+
+    def test_draw_stats_player(self):
+        lib = MagicMock()
+        window = MagicMock()
+        graphics = Graphics.Graphics(lib)
+        graphics.init(window)
+    
+        graphics.draw_stats_player(MagicMock())
+    
+&gt;       self.assertEqual(4, window.call_count)
+E       AssertionError: 4 != 0
+
+Tests\test_graphics.py:27: AssertionError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="10" name="test_init" time="0.001"></testcase></testsuite></testsuites>

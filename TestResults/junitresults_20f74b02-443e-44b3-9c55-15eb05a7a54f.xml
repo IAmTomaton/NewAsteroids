@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.009" timestamp="2019-12-07T11:04:48.894006"><testcase classname="Tests.test_textureLib.test_textureLid" file="Tests\test_textureLib.py" line="5" name="test_" time="0.001"></testcase></testsuite></testsuites>

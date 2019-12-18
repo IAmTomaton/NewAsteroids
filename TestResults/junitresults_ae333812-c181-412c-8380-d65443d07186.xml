@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="4" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="4" time="0.062" timestamp="2019-12-17T22:06:34.292164"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="33" name="test_draw_buttons" time="0.002"><failure message="AttributeError: &apos;list&apos; object has no attribute &apos;body&apos;">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_buttons&gt;
+
+    def test_draw_buttons(self):
+    
+&gt;       self.graphics.draw_unit([MagicMock(), MagicMock()])
+
+Tests\test_graphics.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Graphics.Graphics object at 0x0000024B479F7BC8&gt;
+unit = [&lt;MagicMock id=&apos;2522344481992&apos;&gt;, &lt;MagicMock id=&apos;2522347511688&apos;&gt;]
+
+    def draw_unit(self, unit):
+&gt;       x = unit.body.coordinates.x
+E       AttributeError: &apos;list&apos; object has no attribute &apos;body&apos;
+
+Graphics.py:16: AttributeError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="21" name="test_draw_stats_player" time="0.003"><failure message="NameError: name &apos;window&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_stats_player&gt;
+
+    def test_draw_stats_player(self):
+    
+        self.graphics.draw_stats_player(MagicMock())
+    
+&gt;       self.assertEqual(4, window.blit.call_count)
+E       NameError: name &apos;window&apos; is not defined
+
+Tests\test_graphics.py:26: NameError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="27" name="test_draw_unit" time="0.002"><failure message="NameError: name &apos;window&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_unit&gt;
+
+    def test_draw_unit(self):
+    
+        self.graphics.draw_unit(MagicMock())
+    
+&gt;       self.assertTrue(window.blit.called)
+E       NameError: name &apos;window&apos; is not defined
+
+Tests\test_graphics.py:32: NameError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="15" name="test_init" time="0.001"><failure message="NameError: name &apos;lib&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_init&gt;
+
+    def test_init(self):
+    
+        self.graphics.init(MagicMock())
+    
+&gt;       self.assertTrue(lib.init.called)
+E       NameError: name &apos;lib&apos; is not defined
+
+Tests\test_graphics.py:20: NameError</failure></testcase></testsuite></testsuites>

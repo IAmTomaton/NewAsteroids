@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="4" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="4" time="0.058" timestamp="2019-12-17T22:06:18.058489"><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="33" name="test_draw_buttons" time="0.002"><failure message="NameError: name &apos;graphics&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_buttons&gt;
+
+    def setUp(self):
+        pygame = MagicMock()
+        Graphics.pygame = pygame
+        self.lib = MagicMock()
+        self.window = MagicMock()
+        self.graphics = Graphics.Graphics(self.lib)
+&gt;       graphics.init(self.window)
+E       NameError: name &apos;graphics&apos; is not defined
+
+Tests\test_graphics.py:14: NameError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="21" name="test_draw_stats_player" time="0.001"><failure message="NameError: name &apos;graphics&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_stats_player&gt;
+
+    def setUp(self):
+        pygame = MagicMock()
+        Graphics.pygame = pygame
+        self.lib = MagicMock()
+        self.window = MagicMock()
+        self.graphics = Graphics.Graphics(self.lib)
+&gt;       graphics.init(self.window)
+E       NameError: name &apos;graphics&apos; is not defined
+
+Tests\test_graphics.py:14: NameError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="27" name="test_draw_unit" time="0.001"><failure message="NameError: name &apos;graphics&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_draw_unit&gt;
+
+    def setUp(self):
+        pygame = MagicMock()
+        Graphics.pygame = pygame
+        self.lib = MagicMock()
+        self.window = MagicMock()
+        self.graphics = Graphics.Graphics(self.lib)
+&gt;       graphics.init(self.window)
+E       NameError: name &apos;graphics&apos; is not defined
+
+Tests\test_graphics.py:14: NameError</failure></testcase><testcase classname="Tests.test_graphics.Test_test_graphics" file="Tests\test_graphics.py" line="15" name="test_init" time="0.001"><failure message="NameError: name &apos;graphics&apos; is not defined">self = &lt;test_graphics.Test_test_graphics testMethod=test_init&gt;
+
+    def setUp(self):
+        pygame = MagicMock()
+        Graphics.pygame = pygame
+        self.lib = MagicMock()
+        self.window = MagicMock()
+        self.graphics = Graphics.Graphics(self.lib)
+&gt;       graphics.init(self.window)
+E       NameError: name &apos;graphics&apos; is not defined
+
+Tests\test_graphics.py:14: NameError</failure></testcase></testsuite></testsuites>

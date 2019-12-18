@@ -1,38 +1,40 @@
-import pygame
+try:
+    import pygame
+except SystemExit:
+    pygame = MagicMock()
 from threading import Thread
 from time import time
-import sys, random
-from TextureLid import TextureLib
-from Useful import Body, Vector
-from Units.Player import PlayerBox
-from Units.Asteroids import Asteroid
-from Generator import Generator
-from Menu import Menu
+import sys
+from Vector import Vector
+import math
 
 
 class Space(Thread):
 
-    def __init__(self):
+    def __init__(self, graphics, menu, generator, player_box):
         Thread.__init__(self)
         self.live = True
         self.units = []
         self.clock = pygame.time.Clock()
         self.last_time = 0
         self.size = (1200, 800)
-        self.player_box = PlayerBox()
-        self.generator = Generator()
-        self.menu = Menu(self)
+        self.player_box = player_box
+        self.generator = generator
+        self.menu = menu
+        self.graphics = graphics
         self.pause = False
         self.friction = 20
         self.max_velocity = 300
         self.debug = False
+        self.font_size = 36
 
     def add_unit(self, unit):
         self.units.append(unit)
 
     def move_unit(self, unit, delta):
         unit.body.coordinates += unit.body.velocity * delta
-        unit.body.angle = (unit.body.angle + unit.body.angel_velocity * delta) % 360
+        unit.body.angle =\
+            (unit.body.angle + unit.body.angel_velocity * delta) % 360
 
         if unit.body.coordinates.x > self.size[0]:
             unit.body.coordinates.x = 0
@@ -40,28 +42,23 @@ class Space(Thread):
             unit.body.coordinates.x = self.size[0]
 
         if unit.body.coordinates.y > self.size[1]:
-            unit.body.coordinates.y= 0
+            unit.body.coordinates.y = 0
         elif unit.body.coordinates.y < 0:
             unit.body.coordinates.y = self.size[1]
 
         if unit.body.braking:
             if unit.body.velocity.mod() > 0:
-                delta_velocity = Vector(self.friction, 0).rotate(unit.body.velocity.get_angle()) * delta
+                delta_velocity = Vector(
+                    self.friction, 0).rotate(
+                        unit.body.velocity.get_angle()) * delta
                 if delta_velocity.mod() >= unit.body.velocity.mod():
                     unit.body.velocity = Vector(0, 0)
                 else:
                     unit.body.velocity -= delta_velocity
 
         if unit.body.velocity.mod() > self.max_velocity:
-            unit.body.velocity = unit.body.velocity / unit.body.velocity.mod() * self.max_velocity
-
-    def draw_unit(self, unit):
-        x = unit.body.coordinates.x
-        y = unit.body.coordinates.y
-        image = \
-            self.lib.textures[unit.texture][int(unit.body.angle // self.lib.step)]
-        rect = image.get_rect(center=(x, y))
-        self.window.blit(image, rect)
+            unit.body.velocity = unit.body.velocity /\
+                unit.body.velocity.mod() * self.max_velocity
 
     def move_units(self, delta):
         for u in self.units:
@@ -71,16 +68,12 @@ class Space(Thread):
         for u in self.units:
             u.update(self, delta)
 
-    def draw_units(self):
-        self.window.fill((0, 0, 0))
-        for u in self.units:
-            self.draw_unit(u)
-
     def check_collision(self):
         for u1 in self.units:
             for u2 in self.units:
-                if u1 != u2:
-                    distance = (u1.body.coordinates - u2.body.coordinates).mod()
+                if u1 != u2 and u1.radius > 0 and u2.radius > 0:
+                    distance = (
+                        u1.body.coordinates - u2.body.coordinates).mod()
                     if u1.radius + u2.radius >= distance:
                         u1.collision(u2, self)
 
@@ -95,11 +88,12 @@ class Space(Thread):
     def clear(self):
         self.units = []
 
-    def count(self, name):
+    def count(self, names):
         count = 0
-        for i in self.units:
-            if i.texture == name:
-                count += 1
+        for n in names:
+            for i in self.units:
+                if i.texture == n:
+                    count += 1
         return count
 
     def event_handler(self):
@@ -112,80 +106,81 @@ class Space(Thread):
                     self.menu.enter(self)
                 elif i.key == pygame.K_ESCAPE:
                     self.menu.esc(self)
-                elif i.key == pygame.K_l:
+                elif i.key == pygame.K_LALT:
                     self.debug = not self.debug
                 elif self.menu.scene == "play":
-                    if i.key == pygame.K_UP:
+                    if i.key == pygame.K_UP or i.key == pygame.K_w:
                         self.player_box.motion(1)
-                    elif i.key == pygame.K_DOWN:
+                    elif i.key == pygame.K_DOWN or i.key == pygame.K_s:
                         self.player_box.motion(-1)
-                    elif i.key == pygame.K_LEFT:
+                    elif i.key == pygame.K_LEFT or i.key == pygame.K_a:
                         self.player_box.turn(-1)
-                    elif i.key == pygame.K_RIGHT:
+                    elif i.key == pygame.K_RIGHT or i.key == pygame.K_d:
                         self.player_box.turn(1)
                     elif i.key == pygame.K_SPACE:
-                        self.player_box.shot(self)
+                        self.player_box.shot(True)
                 elif i.key == pygame.K_UP:
                     self.menu.arrow(-1)
                 elif i.key == pygame.K_DOWN:
                     self.menu.arrow(1)
+                elif i.key == pygame.K_BACKSPACE:
+                    self.menu.delete()
+                elif i.key != pygame.K_SPACE:
+                    key = pygame.key.name(i.key).upper()
+                    self.menu.key_down(key)
             elif i.type == pygame.KEYUP:
                 if self.menu.scene == "play":
-                    if i.key == pygame.K_UP:
+                    if i.key == pygame.K_UP or i.key == pygame.K_w:
                         self.player_box.motion(0)
-                    elif i.key == pygame.K_DOWN:
+                    elif i.key == pygame.K_DOWN or i.key == pygame.K_s:
                         self.player_box.motion(0)
-                    elif i.key == pygame.K_LEFT:
+                    elif i.key == pygame.K_LEFT or i.key == pygame.K_a:
                         self.player_box.turn(0)
-                    elif i.key == pygame.K_RIGHT:
+                    elif i.key == pygame.K_RIGHT or i.key == pygame.K_d:
                         self.player_box.turn(0)
+                    elif i.key == pygame.K_SPACE:
+                        self.player_box.shot(False)
 
     def exit(self):
         sys.exit(0)
 
     def update_space(self, delta):
-        font = pygame.font.Font(None, 36)
-
         self.event_handler()
 
         if not self.pause:
             self.move_units(delta)
 
             self.check_collision()
-            
+
             self.update_units(delta)
 
         self.player_box.update(self, delta)
 
-        self.draw_units()
+        self.graphics.draw_units(self.units)
 
-        self.draw_buttons(font)
+        self.graphics.draw_buttons(self.menu.get_buttons())
+
+        if self.player_box.play:
+            self.graphics.draw_stats_player(self.player_box)
 
         if self.debug:
-            self.draw_debug()
+            self.graphics.draw_debug_units(self.units)
 
         pygame.display.update()
 
         self.cleaning()
 
-    def draw_buttons(self, font):
-        for b in self.menu.get_text():
-            text = font.render(b[0], 1, b[1])
-            self.window.blit(text, b[2])
-
-    def draw_debug(self):
-        for i in self.units:
-            a1 = (int(i.body.coordinates.x), int(i.body.coordinates.y))
-            a2 = (i.body.coordinates.x + i.body.velocity.x,
-                  i.body.coordinates.y + i.body.velocity.y)
-            pygame.draw.aaline(self.window, (0, 200, 64), a1, a2)
-
-            pygame.draw.circle(self.window, (225, 225, 0), a1, i.radius, 1)
+    def set_resolution(self, size):
+        self.size = size
+        pygame.display.set_mode(self.size)
 
     def run(self) -> None:
         self.window = pygame.display.set_mode(self.size)
-        self.lib = TextureLib()
         pygame.init()
+
+        self.graphics.init(self.window)
+
+        self.menu.main_menu(self)
 
         while True:
             now_time = time()

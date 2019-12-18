@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="2" time="0.022" timestamp="2019-12-18T10:46:50.394999"><testcase classname="Tests.test_body.Test_test_body" file="Tests\test_body.py" line="12" name="test_angle" time="0.001"></testcase><testcase classname="Tests.test_body.Test_test_body" file="Tests\test_body.py" line="7" name="test_simple" time="0.001"><failure message="AssertionError: &lt;Body.Body object at 0x000001EB1127ABC8&gt; != &lt;Body.Body object at 0x000001EB1127AB08&gt;">self = &lt;test_body.Test_test_body testMethod=test_simple&gt;
+
+    def test_simple(self):
+        body = Body.simple()
+    
+&gt;       self.assertEquals(Body(Vector(0, 0), Vector(0, 0), 0, 0, False), body)
+E       AssertionError: &lt;Body.Body object at 0x000001EB1127ABC8&gt; != &lt;Body.Body object at 0x000001EB1127AB08&gt;
+
+Tests\test_body.py:11: AssertionError</failure></testcase></testsuite></testsuites>
