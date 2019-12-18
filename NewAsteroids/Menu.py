@@ -1,3 +1,4 @@
+from unittest.mock import MagicMock
 from Button import Button
 try:
     import pygame

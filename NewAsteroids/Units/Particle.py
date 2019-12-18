@@ -16,12 +16,9 @@ class Particle(Unit):
         self.time = 2
 
     def update(self, space, delta):
+        self.time -= delta
         if self.time < 0:
             self.live = False
-        self.time -= delta
-
-    def collision(self, other, space):
-        pass
 
     @staticmethod
     def create_cloud(space, position):

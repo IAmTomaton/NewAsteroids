@@ -34,16 +34,37 @@
     <Compile Include="PlayerBox.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\test_black_hole.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\test_body.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_bullet.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\test_graphics.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\test_hol_horse.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_last_hamon.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\test_menu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\test_particle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\test_player_box.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_space.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_star_platinum.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\test_texture_lib.py">

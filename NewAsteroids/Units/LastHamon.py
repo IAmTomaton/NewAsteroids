@@ -11,9 +11,6 @@ class LastHamon(Unit):
         self.body = body
         self.live = True
 
-    def update(self, space, delta):
-        pass
-
     def collision(self, other, space):
         if other.texture == 'player':
             other.health += 1
