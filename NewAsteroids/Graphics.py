@@ -1,3 +1,4 @@
+from unittest.mock import MagicMock
 try:
     import pygame
 except SystemExit:

@@ -63,13 +63,13 @@ class Menu(object):
         back = Button(self.main_menu_from_menu, (self.indent, 100), 'BACK')
         resolution.append(back)
         resolution1 = Button(lambda space: space.set_resolution((1200, 800)),
-                      (self.indent, 150), '1200x800')
+                             (self.indent, 150), '1200x800')
         resolution.append(resolution1)
         resolution2 = Button(lambda space: space.set_resolution((1000, 600)),
-                      (self.indent, 200), '1000x600')
+                             (self.indent, 200), '1000x600')
         resolution.append(resolution2)
         resolution3 = Button(lambda space: space.set_resolution((800, 500)),
-                      (self.indent, 250), '800x500')
+                             (self.indent, 250), '800x500')
         resolution.append(resolution3)
         self.menu_scenes['resolution'] = resolution
 

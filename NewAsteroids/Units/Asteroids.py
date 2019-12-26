@@ -38,9 +38,6 @@ class Asteroid(Unit):
     def create(body):
         return Asteroid.large(body)
 
-    def update(self, space, delta):
-        pass
-
     def collision(self, other, space):
         if other.texture == 'bullet' or other.texture == "hol_horse":
             self.dead(other, space)

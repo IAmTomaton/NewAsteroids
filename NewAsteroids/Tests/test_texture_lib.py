@@ -9,7 +9,7 @@ class Test_test_texture_lib(unittest.TestCase):
         TextureLib.pygame = MagicMock()
 
         textureLib = TextureLib.TextureLib()
-        
+
         textureLib.init()
 
 

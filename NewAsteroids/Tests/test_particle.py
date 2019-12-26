@@ -16,7 +16,7 @@ class Test_test_particle(unittest.TestCase):
     def test_update(self):
         space = MagicMock()
         particle = Particle.create(MagicMock())
-        
+
         particle.update(space, 3)
 
         self.assertFalse(particle.live)

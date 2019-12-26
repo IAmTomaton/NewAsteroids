@@ -51,9 +51,6 @@ class Player(Unit):
             self.visible = True
             self.invisible_cooldown = -1
 
-    def collision(self, other, space):
-        pass
-
     def damage(self, other):
         if self.invisible_cooldown < 0:
             self.health -= 1

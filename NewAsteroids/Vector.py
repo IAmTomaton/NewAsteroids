@@ -24,9 +24,6 @@ class Vector:
     def __iadd__(self, other):
         return Vector(self.x + other.x, self.y + other.y)
 
-    def __str__(self):
-        return "X {} Y {}".format(self.x, self.y)
-
     def mod(self):
         return math.sqrt(self.x * self.x + self.y * self.y)
 

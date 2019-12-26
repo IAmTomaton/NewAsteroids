@@ -34,6 +34,9 @@
     <Compile Include="PlayerBox.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\test_asteroid.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\test_black_hole.py">
       <SubType>Code</SubType>
     </Compile>
@@ -41,6 +44,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\test_bullet.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\test_generator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\test_graphics.py">
@@ -58,6 +64,9 @@
     <Compile Include="Tests\test_particle.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tests\test_player.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Tests\test_player_box.py">
       <SubType>Code</SubType>
     </Compile>
@@ -71,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tests\test_vector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tests\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UnitCard.py">

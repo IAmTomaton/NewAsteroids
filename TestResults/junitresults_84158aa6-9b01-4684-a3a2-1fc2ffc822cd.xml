@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="0" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.013" timestamp="2019-12-19T22:01:47.935256"><testcase classname="Tests.test_asteroid.Test_test_asteroid" file="Tests\test_asteroid.py" line="8" name="test_collision" time="0.002"></testcase></testsuite></testsuites>

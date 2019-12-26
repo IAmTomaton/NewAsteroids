@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="3" time="0.051" timestamp="2019-12-19T22:10:10.197898"><testcase classname="Tests.test_space.Test_test_space" file="Tests\test_space.py" line="19" name="test_add_unit" time="0.002"></testcase><testcase classname="Tests.test_space.Test_test_space" file="Tests\test_space.py" line="34" name="test_check_collision" time="0.002"><failure message="UnboundLocalError: local variable &apos;unit2&apos; referenced before assignment">self = &lt;Tests.test_space.Test_test_space testMethod=test_check_collision&gt;
+
+    def test_check_collision(self):
+        unit1 = MagicMock()
+        unit1.body = Body.simple()
+&gt;       unit2.radius = 10
+E       UnboundLocalError: local variable &apos;unit2&apos; referenced before assignment
+
+Tests\test_space.py:38: UnboundLocalError</failure></testcase><testcase classname="Tests.test_space.Test_test_space" file="Tests\test_space.py" line="24" name="test_move_unit" time="0.002"></testcase></testsuite></testsuites>

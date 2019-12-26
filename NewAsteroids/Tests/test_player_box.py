@@ -22,6 +22,16 @@ class Test_test_player_box(unittest.TestCase):
         self.assertEqual(0, player_box.score)
         self.assertFalse(player_box.play)
 
+    def test_update(self):
+        player_box = PlayerBox()
+        space = MagicMock()
+        player_box.again(space)
+
+        player_box.update(space, 10)
+
+        self.assertEqual(0, player_box.score)
+        self.assertTrue(player_box.play)
+
 
 if __name__ == '__main__':
     unittest.main()

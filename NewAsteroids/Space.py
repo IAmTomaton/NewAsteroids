@@ -97,73 +97,68 @@ class Space(Thread):
                     count += 1
         return count
 
-    def event_handler(self):
-        for i in pygame.event.get():
-            if i.type == pygame.QUIT:
-                self.exit()
+    def event_handler(self, event):
+        if event.type == pygame.QUIT:
+            self.exit()
 
-            elif i.type == pygame.KEYDOWN:
-                if i.key == pygame.K_RETURN:
-                    self.menu.enter(self)
-                elif i.key == pygame.K_ESCAPE:
-                    self.menu.esc(self)
-                elif i.key == pygame.K_LALT:
-                    self.debug = not self.debug
-                elif self.menu.scene == "play":
-                    if i.key == pygame.K_UP or i.key == pygame.K_w:
-                        self.player_box.motion(1)
-                    elif i.key == pygame.K_DOWN or i.key == pygame.K_s:
-                        self.player_box.motion(-1)
-                    elif i.key == pygame.K_LEFT or i.key == pygame.K_a:
-                        self.player_box.turn(-1)
-                    elif i.key == pygame.K_RIGHT or i.key == pygame.K_d:
-                        self.player_box.turn(1)
-                    elif i.key == pygame.K_SPACE:
-                        self.player_box.shot(True)
-                elif i.key == pygame.K_UP:
-                    self.menu.arrow(-1)
-                elif i.key == pygame.K_DOWN:
-                    self.menu.arrow(1)
-                elif i.key == pygame.K_BACKSPACE:
-                    self.menu.delete()
-                elif i.key != pygame.K_SPACE:
-                    key = pygame.key.name(i.key).upper()
-                    self.menu.key_down(key)
-            elif i.type == pygame.KEYUP:
-                if self.menu.scene == "play":
-                    if i.key == pygame.K_UP or i.key == pygame.K_w:
-                        self.player_box.motion(0)
-                    elif i.key == pygame.K_DOWN or i.key == pygame.K_s:
-                        self.player_box.motion(0)
-                    elif i.key == pygame.K_LEFT or i.key == pygame.K_a:
-                        self.player_box.turn(0)
-                    elif i.key == pygame.K_RIGHT or i.key == pygame.K_d:
-                        self.player_box.turn(0)
-                    elif i.key == pygame.K_SPACE:
-                        self.player_box.shot(False)
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                self.menu.enter(self)
+            elif event.key == pygame.K_ESCAPE:
+                self.menu.esc(self)
+            elif event.key == pygame.K_LALT:
+                self.debug = not self.debug
+            elif self.menu.scene == "play":
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
+                    self.player_box.motion(1)
+                elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                    self.player_box.motion(-1)
+                elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                    self.player_box.turn(-1)
+                elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                    self.player_box.turn(1)
+                elif event.key == pygame.K_SPACE:
+                    self.player_box.shot(True)
+            elif event.key == pygame.K_UP:
+                self.menu.arrow(-1)
+            elif event.key == pygame.K_DOWN:
+                self.menu.arrow(1)
+            elif event.key == pygame.K_BACKSPACE:
+                self.menu.delete()
+            elif event.key != pygame.K_SPACE:
+                key = pygame.key.name(event.key).upper()
+                self.menu.key_down(key)
+        elif event.type == pygame.KEYUP:
+            if self.menu.scene == "play":
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
+                    self.player_box.motion(0)
+                elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                    self.player_box.motion(0)
+                elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                    self.player_box.turn(0)
+                elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                    self.player_box.turn(0)
+                elif event.key == pygame.K_SPACE:
+                    self.player_box.shot(False)
 
     def exit(self):
         sys.exit(0)
 
     def update_space(self, delta):
-        self.event_handler()
+        for event in pygame.event.get():
+            self.event_handler(event)
 
         if not self.pause:
             self.move_units(delta)
-
             self.check_collision()
-
             self.update_units(delta)
 
         self.player_box.update(self, delta)
 
         self.graphics.draw_units(self.units)
-
         self.graphics.draw_buttons(self.menu.get_buttons())
-
         if self.player_box.play:
             self.graphics.draw_stats_player(self.player_box)
-
         if self.debug:
             self.graphics.draw_debug_units(self.units)
 
@@ -180,7 +175,6 @@ class Space(Thread):
         pygame.init()
 
         self.graphics.init(self.window)
-
         self.menu.main_menu(self)
 
         while True:
@@ -189,7 +183,6 @@ class Space(Thread):
             self.last_time = now_time
 
             self.update_space(delta)
-
             self.generator.update(self, delta)
 
             self.clock.tick(60)

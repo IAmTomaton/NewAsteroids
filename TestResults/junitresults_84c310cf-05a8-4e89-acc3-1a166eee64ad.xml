@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="DESKTOP-454JC8E" name="pytest" skipped="0" tests="1" time="0.027" timestamp="2019-12-19T22:00:29.209143"><testcase classname="Tests.test_asteroid.Test_test_asteroid" file="Tests\test_asteroid.py" line="8" name="test_collision" time="0.001"><failure message="TypeError: &apos;&lt;&apos; not supported between instances of &apos;MagicMock&apos; and &apos;int&apos;">self = &lt;Tests.test_asteroid.Test_test_asteroid testMethod=test_collision&gt;
+
+    def test_collision(self):
+        body = Body.simple()
+        asteroid = Asteroid.large(body)
+        other = MagicMock()
+        other.texture = &apos;player&apos;
+        space = MagicMock()
+    
+&gt;       asteroid.collision(other, space)
+
+Tests\test_asteroid.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Units.Asteroids.Asteroid object at 0x00000238A19C6348&gt;
+other = &lt;MagicMock id=&apos;2442252804808&apos;&gt;, space = &lt;MagicMock id=&apos;2442252871496&apos;&gt;
+
+    def collision(self, other, space):
+        if other.texture == &apos;bullet&apos; or other.texture == &quot;hol_horse&quot;:
+            self.dead(other, space)
+&gt;       elif other.texture == &apos;player&apos; and other.invisible_cooldown &lt; 0:
+E       TypeError: &apos;&lt;&apos; not supported between instances of &apos;MagicMock&apos; and &apos;int&apos;
+
+Units\Asteroids.py:47: TypeError</failure></testcase></testsuite></testsuites>
